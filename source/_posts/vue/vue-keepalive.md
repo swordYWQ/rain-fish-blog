@@ -4,7 +4,6 @@ author: fish
 comments: true
 tags: 
 - vue
-- javascript
 - 前端
 categories: 
 - 前端
