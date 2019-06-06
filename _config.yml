@@ -77,14 +77,14 @@ theme: hexo-theme-indigo-card
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-- type: git
-  repo: https://github.com/swordYWQ/rainfish.git
-  name: rainfish
-  email: 865429505@qq.com
-  branch: master
+# - type: git
+#   repo: https://github.com/swordYWQ/swordYWQ.github.io.git
+#   name: swordYWQ
+#   email: 865429505@qq.com
+#   branch: master
 
 - type: ftpsync
-  host: 182.61.44.134
+  host: 182.61.41.202
   user: hexouser
   pass: EEMyw2kKzk
   remote: / #data/hexo-blog/

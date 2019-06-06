@@ -1,6 +1,6 @@
 ---
 title: js判断数据类型的方法
-author: fish
+date: 2018-03-21 12:34:14
 comments: true
 tags: 
 - javascript
