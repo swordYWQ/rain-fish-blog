@@ -85,7 +85,7 @@ deploy:
 
 - type: ftpsync
   host: 182.61.41.202
-  user: hexouser
+  user: abc
   pass: EEMyw2kKzk
   remote: / #data/hexo-blog/
   port: 21

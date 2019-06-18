@@ -127,3 +127,35 @@ if (obj.redirect && obj.children.length > 0) {
    self.$router.matcher = createRouter([...baseRoutes]).matcher;
    self.$router.addRoutes(newPermissionRoutes); // 添加路由
 ```
+
+## 路由守卫判断权限
+
+```js
+// 所有支持的路由，用作路由匹配确认是否存在，不用做页面跳转,由于baseRoutes存在*全局匹配，所以把它放在最后
+const usefulRouter = createRouter([...routes, ...baseRoutes])
+
+router.beforeEach((to, from, next) => {
+    let token = localStorage.token
+    // 无需权限即可访问的路由
+    if (to.name == 'login' || to.name == 'noright' || to.name == 'preview') {
+        next()
+    } else {
+        if (token) {
+            // 匹配到路由且匹配数大于1（因为baseRoutes中有一个*全匹配）
+            if (to.matched.length > 1) {
+                next()
+            } else{
+                // 与默认有所有权限的路由匹配，判断路由是不存在还是无权限
+                const matched = usefulRouter.match(to).matched
+                if (matched.length > 1) {
+                    next('/noright')
+                } else {
+                    next()
+                }
+            }
+        } else {
+            next('/login')
+        }
+    }
+})
+```
